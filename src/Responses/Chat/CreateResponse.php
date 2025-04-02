@@ -28,7 +28,7 @@ final class CreateResponse implements ResponseContract, ResponseHasMetaInformati
      * @param  array<int, CreateResponseChoice>  $choices
      */
     private function __construct(
-        public readonly string $id,
+        public readonly ?string $id,
         public readonly string $object,
         public readonly int $created,
         public readonly string $model,
@@ -50,7 +50,7 @@ final class CreateResponse implements ResponseContract, ResponseHasMetaInformati
         ), $attributes['choices']);
 
         return new self(
-            $attributes['id'],
+            $attributes['id'] ?? null,
             $attributes['object'],
             $attributes['created'],
             $attributes['model'],
